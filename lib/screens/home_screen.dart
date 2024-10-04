@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:t20_app/screens/history_screen.dart';
-import 'package:t20_app/screens/schedule_screen.dart';
-import 'package:t20_app/screens/teams_screen.dart';
-import 'package:t20_app/screens/venues_screen.dart';
+import 'package:t20_app/utils/routes_name.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../utility/connectivity.dart';
 import '../widgets/home_widget.dart';
@@ -51,36 +48,28 @@ class HomeScreen extends StatelessWidget {
             ),
             ListTile(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-                  return ScheduleScreen();
-                }));
+                Navigator.pushNamed(context, RouteName.scheduleScreen);
               },
               leading: Icon(Icons.access_time, color: Colors.white),
               title: Text('Schedule', style: TextStyle(color: Colors.white),),
             ),
             ListTile(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-                  return VenuesScreen();
-                }));
+                Navigator.pushNamed(context, RouteName.venuesScreen);
               },
               leading: Icon(Icons.live_tv, color: Colors.white),
               title: Text('Venues', style: TextStyle(color: Colors.white)),
             ),
             ListTile(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (ctx){
-                  return HistoryScreen();
-                }));
+                Navigator.pushNamed(context, RouteName.historyScreen);
               },
               leading: Icon(Icons.history, color: Colors.white),
               title: Text('History', style: TextStyle(color: Colors.white)),
             ),
             ListTile(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-                  return TeamsScreen();
-                }));
+                Navigator.pushNamed(context, RouteName.teamsScreen);
               },
               leading: Icon(Icons.group, color: Colors.white),
               title: Text('Teams', style: TextStyle(color: Colors.white)),
@@ -103,24 +92,16 @@ class HomeScreen extends StatelessWidget {
         ),
         children: [
          HomeWidget(title: 'Schedule',onPress: (){
-           Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-             return ScheduleScreen();
-           }));
+           Navigator.pushNamed(context, RouteName.scheduleScreen);
          },icon: Icons.access_time,),
          HomeWidget(title: 'Venues', onPress: (){
-           Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-             return VenuesScreen();
-           }));
+           Navigator.pushNamed(context, RouteName.venuesScreen);
          }, icon: Icons.location_on_outlined),
          HomeWidget(title: 'History', onPress: (){
-           Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-             return HistoryScreen();
-           }));
+           Navigator.pushNamed(context, RouteName.historyScreen);
          }, icon: Icons.history),
          HomeWidget(title: 'Teams', onPress: (){
-           Navigator.of(context).push(MaterialPageRoute(builder: (ctx){
-             return TeamsScreen();
-           }));
+           Navigator.pushNamed(context, RouteName.teamsScreen);
          }, icon: Icons.group),
          HomeWidget(title: 'Live Score', onPress: ()async{
            var _url = 'https://www.icc-cricket.com/';
